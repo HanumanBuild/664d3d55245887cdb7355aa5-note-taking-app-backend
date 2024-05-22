@@ -7,7 +7,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Placeholder for routes
+const userRoutes = require('./routes/userRoutes');
+const noteRoutes = require('./routes/noteRoutes');
+
+app.use('/api', userRoutes);
+app.use('/api', noteRoutes);
+
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
